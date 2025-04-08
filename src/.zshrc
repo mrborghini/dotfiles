@@ -23,4 +23,4 @@ autoload -Uz compinit
 compinit
 
 # Setup command line text to "[user@hostname path]$ "
-PROMPT='[%F{cyan}%n@%M%F{blue} %~%f]$ '
+PROMPT='[%B%F{cyan}%n@%M%F{blue} %~%b%f]$ '
