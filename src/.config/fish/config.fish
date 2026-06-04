@@ -10,23 +10,12 @@ if status is-interactive
         set_color normal
         echo -n ']$ '
 
-        # enable tab completions for accepting and completing
+        # Tab: cycle completions. Right arrow: accept gray autosuggestion.
         function fish_user_key_bindings
-            bind \t __tab_accept_or_complete
+            bind \t complete
+            bind \e\[Z complete-and-search
         end
     end
 end
 
 set -g fish_prompt_pwd_dir_length 0
-
-# Helper function to make tab completions work like zsh
-function __tab_accept_or_complete
-    set -l before (commandline)
-    commandline -f accept-autosuggestion
-    set -l after (commandline)
-    # If the command line is unchanged, there was no suggestion to accept,
-    # so fall back to normal completion.
-    if test "$before" = "$after"
-        commandline -f complete
-    end
-end
