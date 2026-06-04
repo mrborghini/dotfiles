@@ -3,4 +3,4 @@
 set -e
 
 # Install all dotfiles into the home directory
-cp -r src/* ~/
+cp -a src/. ~/
